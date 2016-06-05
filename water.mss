@@ -1,8 +1,8 @@
 @water-text: #6699cc;
-@glacier: #ddecec;
+@glacier: #adecec;
 @glacier-line: #9cf;
 
-#water-areas {
+#glacier-areas {
   [natural = 'glacier']::natural {
     [zoom >= 6] {
       line-width: 0.75;

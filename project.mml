@@ -144,6 +144,46 @@
       "advanced": {}
     },
     {
+      "extent": [
+        -179.99999692067183,
+        -84.96651228427099,
+        179.99999692067183,
+        84.96651228427098
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "      (select way,\"natural\",name\n      from planet_osm_polygon\n      where \"natural\" in ('glacier')\n         and building is null\n      order by z_order,way_area desc\n      ) as water_areas",
+        "extent": "-20037508,-19929239,20037508,19929239",
+        "key_field": "",
+        "geometry_field": "way",
+        "dbname": "gis"
+      },
+      "id": "glacier-areas",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "glacier-areas"
+    },
+    {
+      "extent": [
+        -179.99999692067183,
+        -85.051,
+        179.99999692067183,
+        83.66933299999998
+      ],
+      "id": "hillshade",
+      "class": "",
+      "Datasource": {
+        "file": "layers/swiss-hills.tif",
+        "type": "gdal"
+      },
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "hillshade"
+    },
+    {
       "name": "landcover-line",
       "srs-name": "900913",
       "geometry": "linestring",
@@ -2043,9 +2083,9 @@
   ],
   "scale": 1,
   "center": [
-    0,
-    0,
-    4
+    8.4045,
+    46.9503,
+    8
   ],
   "format": "png",
   "_parts": {
@@ -2079,10 +2119,10 @@
   },
   "metatile": 2,
   "bounds": [
-    -180,
-    -85.05112877980659,
-    180,
-    85.05112877980659
+    5.7129,
+    45.6448,
+    10.5469,
+    47.7541  
   ],
   "name": "OpenStreetMap Carto",
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",

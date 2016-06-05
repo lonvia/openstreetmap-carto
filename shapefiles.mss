@@ -39,3 +39,9 @@
     polygon-fill: #ddd;
   }
 }
+
+#hillshade {
+    raster-scaling: bilinear;
+    raster-comp-op: darken;
+    raster-opacity: 0.6;
+}
