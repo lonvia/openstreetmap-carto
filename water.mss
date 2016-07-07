@@ -2,7 +2,7 @@
 @glacier: #adecec;
 @glacier-line: #9cf;
 
-#glacier-areas {
+#water-areas {
   [natural = 'glacier']::natural {
     [zoom >= 6] {
       line-width: 0.75;
