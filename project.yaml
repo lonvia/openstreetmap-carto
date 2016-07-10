@@ -3,14 +3,14 @@ metatile: 2
 name: "OpenStreetMap Carto"
 description: "A general-purpose OpenStreetMap mapnik style, in CartoCSS"
 bounds: &world
-  - -180
-  - -85.05112877980659
-  - 180
-  - 85.05112877980659
+  - 5.7129
+  - 45.6448
+  - 10.5469
+  - 47.7541
 center:
-  - 0
-  - 0
-  - 4
+  - 8.4
+  - 46.9
+  - 8
 format: "png"
 interactivity: false
 minzoom: 0
@@ -180,6 +180,30 @@ Layer:
         ) AS features
     properties:
       minzoom: 10
+    advanced: {}
+  - id: "glacier-areas"
+    name: "glacier-areas"
+    class: ""
+    geometry: "polygon"
+    <<: *extents
+    Datasource:
+      <<: *osm2pgsql
+      table: |-
+        (SELECT
+            way, "natural", name
+          FROM planet_osm_polygon
+          WHERE "natural" in ('glacier')
+          AND building is null
+          ORDER BY z_order,way_area desc
+        ) AS glacier_areas
+    advanced: {}
+  - id: "hillshade"
+    name: "hillshade"
+    class: ""
+    <<: *extents
+    Datasource:
+      file: "layers/swiss-hills.tif"
+      type: "gdal"
     advanced: {}
   - id: "landcover-line"
     name: "landcover-line"
