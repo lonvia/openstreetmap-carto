@@ -17,7 +17,7 @@
 }
 
 #water-areas {
-  [waterway = 'dock']
+  [waterway = 'dock'] {
     [zoom >= 9]::waterway {
       polygon-fill: @water-color;
       [way_pixels >= 4] {
