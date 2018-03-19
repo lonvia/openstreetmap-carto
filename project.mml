@@ -53,6 +53,7 @@ Stylesheet:
   - aerialways.mss
   - admin.mss
   - addressing.mss
+  - contours.mss
 Layer:
   - id: world
     geometry: polygon
@@ -181,6 +182,65 @@ Layer:
       file: "layers/swiss-hills.tif"
       type: "gdal"
     advanced: {}
+  - id: contours
+    geometry: linestring
+    <<: *extents
+    Datasource:
+      type: "postgis"
+      dbname: "gis"
+      key_field: ""
+      geometry_field: "geom"
+      extent: "-20037508,-20037508,20037508,20037508"
+      table: |-
+        (SELECT
+            geom, ROUND(height) :: integer AS height
+          FROM contours
+        ) AS contours
+  - id: contours20
+    geometry: linestring
+    <<: *extents
+    Datasource:
+      type: "postgis"
+      dbname: "gis"
+      key_field: ""
+      geometry_field: "geom"
+      extent: "-20037508,-20037508,20037508,20037508"
+      table: |-
+        (SELECT
+            geom, ROUND(height) :: integer AS height
+          FROM contours
+          WHERE ROUND(height) :: integer % 20 = 0
+        ) AS contours
+  - id: contours50
+    geometry: linestring
+    <<: *extents
+    Datasource:
+      type: "postgis"
+      dbname: "gis"
+      key_field: ""
+      geometry_field: "geom"
+      extent: "-20037508,-20037508,20037508,20037508"
+      table: |-
+        (SELECT
+            geom, ROUND(height) :: integer AS height
+          FROM contours
+          WHERE ROUND(height) :: integer % 50 = 0
+        ) AS contours
+  - id: contours100
+    geometry: linestring
+    <<: *extents
+    Datasource:
+      type: "postgis"
+      dbname: "gis"
+      key_field: ""
+      geometry_field: "geom"
+      extent: "-20037508,-20037508,20037508,20037508"
+      table: |-
+        (SELECT
+            geom, ROUND(height) :: integer AS height
+          FROM contours
+          WHERE ROUND(height) :: integer % 100 = 0
+        ) AS contours
   - id: landcover-line
     geometry: linestring
     <<: *extents
