@@ -265,6 +265,15 @@ function roads(tags)
     return 0
 end
 
+function name_transform(name)
+    name = string.gsub(name, "( ?)([Ss])trasse$", "%1%2tr.")
+    name = string.gsub(name, "( ?)([Ss])trasse ", "%1%2tr. ")
+    name = string.gsub(name, "( ?)([Ss])ankt$", "%1%2t.")
+    name = string.gsub(name, "( ?)([Ss])ankt ", "%1%2t. ")
+    name = string.gsub(name, "( ?)([Ss])ankt-", "%1%2t.-")
+    return name
+end
+
 --- Generic filtering of OSM tags
 -- @param tags Raw OSM tags
 -- @return Filtered OSM tags
@@ -272,6 +281,48 @@ function filter_tags_generic(tags)
     -- Short-circuit for untagged objects
     if next(tags) == nil then
         return 1, {}
+    end
+
+    -- names for the local styles
+    if tags['name'] ~= nil then
+       tags['name'] = name_transform(tags['name'])
+
+       if tags['name:gsw'] == nil then
+          tags['gswname'] = tags['name']
+       else
+          tags['gswname'] = tags['name:gsw']
+       end
+
+       if tags['name:rm'] == nil then
+          tags['romanshname'] = tags['name']
+       else
+          tags['romanshname'] = tags['name:rm']
+       end
+
+       if tags['name:fr'] == nil then
+          tags['frname'] = tags['name']
+       else
+          tags['frname'] = tags['name:fr']
+       end
+
+       if tags['name:it'] == nil then
+          tags['itname'] = tags['name']
+       else
+          tags['itname'] = tags['name:it']
+       end
+    else
+       if tags['name:rm'] ~= nil then
+          tags['romanshname'] = tags['name:rm']
+       end
+       if tags['name:gsw'] ~= nil then
+          tags['gswname'] = tags['name:gsw']
+       end
+       if tags['name:fr'] ~= nil then
+          tags['frname'] = tags['name:fr']
+       end
+       if tags['name:it'] ~= nil then
+          tags['itname'] = tags['name:it']
+       end
     end
 
     -- Delete tags listed in delete_tags
