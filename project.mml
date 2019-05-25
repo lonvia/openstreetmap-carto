@@ -179,7 +179,21 @@ Layer:
     name: hillshade
     <<: *extents
     Datasource:
-      file: "layers/swiss-hills.tif"
+      file: "layers/hillshading/index.vrt"
+      type: "gdal"
+    advanced: {}
+  - id: hillshade-small
+    name: hillshade-small
+    <<: *extents
+    Datasource:
+      file: "layers/hillshading/small/index.vrt"
+      type: "gdal"
+    advanced: {}
+  - id: hillshade-tiny
+    name: hillshade-tiny
+    <<: *extents
+    Datasource:
+      file: "layers/hillshading/tiny/index.vrt"
       type: "gdal"
     advanced: {}
   - id: contours
