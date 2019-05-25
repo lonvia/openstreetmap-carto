@@ -40,7 +40,25 @@
 }
 
 #hillshade {
+  [zoom >= 9] {
     raster-scaling: bilinear;
     raster-comp-op: darken;
-    raster-opacity: 0.6;
+    raster-opacity: 0.3;
+  }
+}
+
+#hillshade-small {
+  [zoom < 9][zoom >= 7] {
+    raster-scaling: bilinear;
+    raster-comp-op: darken;
+    raster-opacity: 0.3;
+  }
+}
+
+#hillshade-tiny {
+  [zoom < 7] {
+    raster-scaling: bilinear;
+    raster-comp-op: darken;
+    raster-opacity: 0.3;
+  }
 }
