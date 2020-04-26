@@ -1582,10 +1582,10 @@
 /* Note that these layers are also used in water.mss */
 #text-poly-low-zoom[zoom < 10],
 #text-point[zoom >= 10] {
-  [feature = 'place_island'][zoom >= 4][way_pixels > 3000][way_pixels <= 768000],
-  [feature = 'place_island'][zoom >= 16][way_pixels <= 768000],
-  [feature = 'place_islet'][zoom >= 11][way_pixels > 3000][way_pixels <= 768000],
-  [feature = 'place_islet'][zoom >= 17][way_pixels <= 768000] {
+  [feature = 'place_island'][zoom >= 4][way_pixels > 3000],
+  [feature = 'place_island'][zoom >= 16],
+  [feature = 'place_islet'][zoom >= 11][way_pixels > 3000],
+  [feature = 'place_islet'][zoom >= 17] {
     text-name: "[name]";
     text-fill: #000;
     text-size: @landcover-font-size;
@@ -1978,9 +1978,7 @@
   [feature = 'leisure_water_park'],
   [feature = 'leisure_sports_centre'][sport = 'swimming'],
   [feature = 'leisure_swimming_area'] {
-    [way_area >= 150000][zoom >= 14],
-    [way_area >= 80000][zoom >= 15],
-    [way_area >= 20000][zoom >= 16],
+    [zoom >= 14][way_pixels > 3000],
     [zoom >= 17] {
       text-name: "[name]";
       text-size: @standard-font-size;
@@ -1995,8 +1993,8 @@
   }
 
   [feature = 'leisure_swimming_pool'][is_building = 'no'] {
-    [zoom >= 14][way_pixels > 3000][way_pixels <= 768000],
-    [zoom >= 17][way_pixels <= 768000] {
+    [zoom >= 14][way_pixels > 3000],
+    [zoom >= 17] {
       text-name: "[name]";
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
@@ -2022,9 +2020,7 @@
   [feature = 'leisure_dog_park'],
   [feature = 'leisure_fitness_centre'],
   [feature = 'leisure_fitness_station'] {
-    [way_area >= 150000][zoom >= 14],
-    [way_area >= 80000][zoom >= 15],
-    [way_area >= 20000][zoom >= 16],
+    [zoom >= 14][way_pixels > 3000],
     [zoom >= 17] {
       text-name: "[name]";
       text-size: @standard-font-size;
@@ -2048,8 +2044,8 @@
   [feature = 'leisure_nature_reserve'],
   [feature = 'boundary_aboriginal_lands'],
   [feature = 'boundary_protected_area'] {
-    [zoom >= 8][way_pixels > 3000][way_pixels <= 768000][is_building = 'no'],
-    [zoom >= 17][way_pixels <= 768000] {
+    [zoom >= 8][way_pixels > 3000][is_building = 'no'],
+    [zoom >= 17] {
       text-name: "[name]";
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
@@ -2086,8 +2082,8 @@
   }
 
   [feature = 'military_danger_area'][is_building = 'no'] {
-    [zoom >= 9][way_pixels > 3000][way_pixels <= 768000],
-    [zoom >= 17][way_pixels <= 768000] {
+    [zoom >= 9][way_pixels > 3000],
+    [zoom >= 17] {
       text-name: "[name]";
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
@@ -2110,8 +2106,8 @@
   }
 
   [feature = 'landuse_garages'][is_building = 'no'] {
-    [zoom >= 13][way_pixels > 3000][way_pixels <= 768000],
-    [zoom >= 17][way_pixels <= 768000] {
+    [zoom >= 13][way_pixels > 3000],
+    [zoom >= 17] {
       text-name: "[name]";
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
@@ -2185,10 +2181,10 @@
   [feature = 'leisure_dog_park'],
   [feature = 'leisure_ice_rink'],
   [feature = 'leisure_pitch'] {
-    [zoom >= 10][way_pixels > 3000][way_pixels <= 768000][is_building = 'no'],
-    [zoom >= 17][way_pixels <= 768000][is_building = 'no'],
-    [zoom >= 10][way_pixels > 3000][way_pixels <= 768000][shop = 'mall'],
-    [zoom >= 17][way_pixels <= 768000][shop = 'mall'] {
+    [zoom >= 10][way_pixels > 3000][is_building = 'no'],
+    [zoom >= 17][is_building = 'no'],
+    [zoom >= 10][way_pixels > 3000][shop = 'mall'],
+    [zoom >= 17][shop = 'mall'] {
       text-name: "[name]";
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
@@ -2442,8 +2438,8 @@
   }
 
   [feature = 'leisure_marina'][zoom >= 15] {
-    [zoom >= 10][way_pixels > 3000][way_pixels <= 768000],
-    [zoom >= 17][way_pixels <= 768000] {
+    [zoom >= 10][way_pixels > 3000],
+    [zoom >= 17] {
       text-name: "[name]";
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
@@ -2704,8 +2700,8 @@
   [feature = 'power_generator'][is_building = 'no']["generator:source" != 'wind'][zoom >= 10],
   [feature = 'power_sub_station'][is_building = 'no'][zoom >= 13],
   [feature = 'power_substation'][is_building = 'no'][zoom >= 13]{
-    [way_pixels > 3000][way_pixels <= 768000],
-    [zoom >= 17][way_pixels <= 768000] {
+    [way_pixels > 3000],
+    [zoom >= 17] {
       text-name: "[name]";
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
@@ -2731,8 +2727,8 @@
   [feature = 'natural_shingle'][zoom >= 9],
   [feature = 'natural_bare_rock'],
   [feature = 'natural_sand'] {
-    [zoom >= 8][way_pixels > 3000][way_pixels <= 768000][is_building = 'no'],
-    [zoom >= 17][way_pixels <= 768000][is_building = 'no'] {
+    [zoom >= 8][way_pixels > 3000][is_building = 'no'],
+    [zoom >= 17][is_building = 'no'] {
       text-name: "[name]";
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
@@ -2762,8 +2758,8 @@
   }
 
   [feature = 'aeroway_apron'][is_building = 'no'] {
-    [zoom >= 10][way_pixels > 3000][way_pixels <= 768000],
-    [zoom >= 17][way_pixels <= 768000] {
+    [zoom >= 10][way_pixels > 3000],
+    [zoom >= 17] {
       text-name: "[name]";
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
@@ -2787,8 +2783,8 @@
 
   [feature = 'highway_services'][is_building = 'no'],
   [feature = 'highway_rest_area'][is_building = 'no'] {
-    [zoom >= 10][way_pixels > 3000][way_pixels <= 768000],
-    [zoom >= 17][way_pixels <= 768000] {
+    [zoom >= 10][way_pixels > 3000],
+    [zoom >= 17] {
       text-name: "[name]";
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
@@ -2811,9 +2807,9 @@
   }
 
   [feature = 'natural_glacier'][is_building = 'no'] {
-    [zoom >= 8][way_pixels > 10000][way_pixels <= 768000],
-    [zoom >= 10][way_pixels > 750][way_pixels <= 768000],
-    [zoom >= 17][way_pixels <= 768000] {
+    [zoom >= 8][way_pixels > 10000],
+    [zoom >= 10][way_pixels > 750],
+    [zoom >= 17] {
       text-name: "[name]";
       text-size: @landcover-font-size;
       text-wrap-width: @landcover-wrap-width-size;
