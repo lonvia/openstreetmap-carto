@@ -316,6 +316,7 @@
       }
     }
   }
+  [natural = 'bay'][zoom >= 14],
   [natural = 'strait'][zoom >= 14] {
     text-name: "[name]";
     text-size: 10;
