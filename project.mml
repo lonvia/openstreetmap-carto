@@ -3,10 +3,10 @@ metatile: 2
 name: OpenStreetMap Carto
 description: A general-purpose OpenStreetMap mapnik style, in CartoCSS
 bounds: &world
-  - 5.7129
-  - 45.6448
-  - 10.5469
-  - 47.7541
+  - -180
+  - -85.05112877980659
+  - 180
+  - 85.05112877980659
 center:
   - 8.4
   - 46.9
